@@ -209,7 +209,6 @@ nvm allows us to manage multiple versions of Node.js.
 curl https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash
 ```
 
-
 **Activate nvm** :
 
 ```bash
@@ -296,3 +295,76 @@ bench new-site site-name
 
 * Replace `site-name` with your desired site name (e.g., `mysite.local`).
 * You'll also need to set an administrator password for the new site when prompted.
+
+## **Install ERPNext and Other Applications**
+
+Before proceeding, it's important to note the dependencies between the applications:
+
+* **HRMS** depends on  **ERPNext** .
+* **ERPNext** depends on the **Payments** app.
+
+Therefore, we need to install them in the correct order to ensure all dependencies are satisfied.
+
+### **Download the Required Applications**
+
+We'll use the `bench get-app` command to download the applications we need.
+
+#### **1. Install the Payments App**
+
+The Payments app is required for setting up ERPNext.
+
+```bash
+bench get-app --branch version-15 payments
+```
+
+#### **2. Install ERPNext**
+
+Next, we'll download ERPNext, specifying the version 15.
+
+```bash
+bench get-app --branch version-15 erpnext
+```
+
+#### **3. Install the HRMS App**
+
+Now, we'll download the HRMS application.
+
+```bash
+bench get-app --branch version-15 hrms
+```
+
+### **Install the Applications on Your Site**
+
+After downloading the applications, we need to install them on our site in the correct order.
+
+#### **1. Install Payments on the Site**
+
+```bash
+bench --site site-name install-app payments
+```
+
+* Replace `site-name` with the name of your site (e.g., `mysite.local`).
+
+#### **2. Install ERPNext on the Site**
+
+```bash
+bench --site site-name install-app erpnext
+```
+
+* Replace `site-name` with the name of your site (e.g., `mysite.local`).
+
+#### **3. Install the HRMS App on the Site**
+
+```bash
+bench --site site-name install-app hrms
+```
+
+### **Start the Bench**
+
+With the applications installed, we can start the bench to run our ERPNext instance.
+
+```bash
+bench start
+```
+
+**Note** : This command starts the development server, which will run until you stop it. If you close the terminal or the server restarts, you'll need to run `bench start` again.
