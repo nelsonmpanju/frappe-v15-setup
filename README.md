@@ -66,3 +66,64 @@ cd /home/frappe-user
 ```
 
 **Note** : Ensure you replace `frappe-user` with your chosen username throughout the commands.
+
+
+## **Install Required Packages**
+
+To ensure Frappe runs smoothly, we need to install several essential packages and dependencies on our Ubuntu 22.04 system.
+
+### **Install Git**
+
+Git is a version control system that allows us to clone repositories and manage code versions.
+
+```bash
+sudo apt install git -y
+```
+
+### **Install Python 3.10 and Development Packages**
+
+Frappe Version 15 requires Python 3.10 or higher. We'll install Python and necessary development packages
+
+```bash
+sudo apt install python3-dev python3.10-dev python3-setuptools python3-pip python3-distutils -y
+```
+
+### **Install Python Virtual Environment**
+
+A virtual environment helps manage dependencies for our Python projects in isolation.
+
+```bash
+sudo apt install python3.10-venv -y
+```
+
+### **Install Software Properties Common**
+
+This package provides scripts for managing software repositories in Debian-based systems.
+
+```bash
+sudo apt install software-properties-common -y
+```
+
+### **Install MariaDB**
+
+MariaDB is the default database system used by Frappe.
+
+```bash
+sudo apt install mariadb-server mariadb-client -y
+```
+
+### **Install Redis Server**
+
+Redis is an in-memory data structure store used by Frappe  for caching.
+
+```bash
+sudo apt install redis-server -y
+```
+
+### **Install Additional Packages**
+
+Frappe relies on additional packages for rendering PDFs, handling fonts, and other functionalities.
+
+```bash
+sudo apt install xvfb libfontconfig wkhtmltopdf libmysqlclient-dev -y
+```
