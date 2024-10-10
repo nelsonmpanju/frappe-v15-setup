@@ -186,3 +186,57 @@ Apply the changes by restarting MariaDB:
 ```bash
 sudo service mysql restart
 ```
+
+## **Install cURL, Node.js, npm, and Yarn**
+
+These tools are required for installing Node.js packages and managing frontend assets in Frappe.
+
+### **Install cURL**
+
+cURL is used to transfer data with URLs, which we'll use to install Node Version Manager (nvm).
+
+```bash
+sudo apt install curl -y
+```
+
+### **Install Node Version Manager (nvm)**
+
+nvm allows us to manage multiple versions of Node.js.
+
+* **Download and install nvm** :
+
+```bash
+curl https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash
+```
+
+* **Activate nvm** :
+
+  ```bash
+  source ~/.profile
+  ```
+  ### **Install Node.js Version 18**
+
+  Use nvm to install Node.js version 18, which is required by Frappe version 15.
+
+
+  ```bash
+  nvm install 18
+  ```
+  **Verify the installation** :
+
+  ```bash
+  node -v
+  npm -v
+  ```
+  ### **Install Yarn**
+
+  Yarn is a package manager that handles project dependencies efficiently.
+
+  ```bash
+  npm install -g yarn
+  ```
+  **Verify the installation** :
+
+  ```bash
+  yarn --version
+  ```
