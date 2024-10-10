@@ -395,35 +395,89 @@ http://localhost:8000
 
 ### **Step 3: Log In to Your Site**
 
-* You should see the Frappe login page:
-
-![login_page](./screenshots/login_page.png)
-
+* You should see the Frappe login page
 * Enter the following credentials:
 
   * **Username:** `Administrator`
   * **Password:** *(The password you set during site creation)*
 
+![login_page](./screenshots/login_page.png)
+
 ### **Setup Wizard**
 
 After logging in, you'll be guided through the setup wizard to configure your instance.
-
-![Setup wizard](./screenshots/setup-wizard.png)
 
 #### **Step 4: Select Language, Country, and Time Zone**
 
 * You will be prompted to choose your language, country, time zone, and currency:
 * Once you've filled in the details, click  **Next** .
 
-#### **Step 5: Set Up Your Organization**
+![Setup wizard](./screenshots/setup-wizard.png)
 
-![organization-configuration](./screenshots/organization-configuration.png)
+#### **Step 5: Set Up Your Organization**
 
 * You will now configure your company details, including the company name, abbreviation, chart of accounts, and financial year:
 * After filling in the details, click  **Complete Setup** .
+
+![organization-configuration](./screenshots/organization-configuration.png)
 
 #### **Step 4: Verify Successful Access**
 
 Wait for the setup process to finish. Once completed, you will be redirected to the Frappe Desk (the main dashboard).
 
 ![frappe_desk](./screenshots/frappe_desk.png)
+
+## **User Creation and Role Assignment**
+
+In this section, we will create two users and assign them the appropriate predefined roles that come with ERPNext:
+
+* **HR Manager** : This user will manage the HRMS module and will be assigned the predefined **HR Manager** role.
+* **Accounts Manager** : This user will manage the Payments and accounting-related activities and will be assigned the predefined **Accounts Manager** role.
+
+### **Steps to Create Users in ERPNext**
+
+#### **1. Creating the HR Manager User**
+
+1. **Access the User List:**
+
+   * In the top navigation bar, use the search box (called the  **Awesome Search** ) to type "User."
+   * From the dropdown, select  **User List** .
+
+   ![awesome search](./screenshots/awesome_search.png)
+2. **Create a New User:**
+
+   * Click the **New User** button located on the right-hand side of the screen to create a new user.
+
+     ![new user](./screenshots/new_user.png)
+3. **Fill in the User Details:**
+
+   * **Email** : `hrmanager@example.com` (replace with your preferred email address).
+   * **First Name** : `HR`
+   * **Last Name** : `Manager`
+4. **Assign Roles:**
+
+   * **HR Manager** : This role provides access to all HR-related functionalities, including managing employee records, approving leave applications, and processing payroll.
+5. **Save the User:**
+
+   * Click the **Save** button to finalize the creation of the HR Manager user.
+     ![save Page](./screenshots/save_button.png)
+
+---
+
+You can use this structure for creating the **Accounts Manager** user as well:
+
+#### **2. Creating the Accounts Manager User**
+
+1. **Access the User List:**
+   * In the top navigation bar, use the **Awesome Search** to type "User."
+   * From the dropdown, select  **User List** .
+2. **Create a New User:**
+   * Click the **New User** button located on the right-hand side of the screen to create a new user.
+3. **Fill in the Accounts Manager’s Details:**
+   * **Email** : `accountsmanager@example.com` (replace with your preferred email address).
+   * **First Name** : `Accounts`
+   * **Last Name** : `Manager`
+4. **Assign Roles:**
+   * **Accounts Manager** : This role provides access to manage accounting and finance-related activities, such as handling invoices, processing payments, and generating financial reports.
+5. **Save the User:**
+   * Click the **Save** button to finalize the creation of the Accounts Manager user.
