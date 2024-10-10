@@ -368,3 +368,62 @@ bench start
 ```
 
 **Note** : This command starts the development server, which will run until you stop it. If you close the terminal or the server restarts, you'll need to run `bench start` again.
+
+## **Accessing Your Site**
+
+After starting the bench, you can access your Frappe site through your web browser.**Step 1: Open Your Web Browser**
+
+* Open your preferred web browser (e.g., Chrome, Firefox, Edge).
+
+### **Step 2: Navigate to Your Site**
+
+* Enter one of the following URLs in the address bar:
+
+  * **Localhost (if you're running the server locally):**
+
+```arduino
+http://localhost:8000
+```
+
+* **Server IP Address (if accessing remotely):**
+
+```arduino
+    http://your-server-ip:8000
+```
+
+* Replace `your-server-ip` with the actual IP address of your server.
+
+### **Step 3: Log In to Your Site**
+
+* You should see the Frappe login page:
+
+![login_page](./screenshots/login_page.png)
+
+* Enter the following credentials:
+
+  * **Username:** `Administrator`
+  * **Password:** *(The password you set during site creation)*
+
+### **Setup Wizard**
+
+After logging in, you'll be guided through the setup wizard to configure your instance.
+
+![Setup wizard](./screenshots/setup-wizard.png)
+
+#### **Step 4: Select Language, Country, and Time Zone**
+
+* You will be prompted to choose your language, country, time zone, and currency:
+* Once you've filled in the details, click  **Next** .
+
+#### **Step 5: Set Up Your Organization**
+
+![organization-configuration](./screenshots/organization-configuration.png)
+
+* You will now configure your company details, including the company name, abbreviation, chart of accounts, and financial year:
+* After filling in the details, click  **Complete Setup** .
+
+#### **Step 4: Verify Successful Access**
+
+Wait for the setup process to finish. Once completed, you will be redirected to the Frappe Desk (the main dashboard).
+
+![frappe_desk](./screenshots/frappe_desk.png)
