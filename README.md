@@ -67,7 +67,6 @@ cd /home/frappe-user
 
 **Note** : Ensure you replace `frappe-user` with your chosen username throughout the commands.
 
-
 ## **Install Required Packages**
 
 To ensure Frappe runs smoothly, we need to install several essential packages and dependencies on our Ubuntu 22.04 system.
@@ -126,4 +125,64 @@ Frappe relies on additional packages for rendering PDFs, handling fonts, and oth
 
 ```bash
 sudo apt install xvfb libfontconfig wkhtmltopdf libmysqlclient-dev -y
+```
+
+## **Configure MariaDB**
+
+We need to secure and configure MariaDB to work properly with Frappe.
+
+### **Secure MariaDB Installation**
+
+Run the following command to secure your MariaDB installation:
+
+```bash
+sudo mysql_secure_installation
+```
+
+When prompted, follow these recommended responses:
+
+1. **Enter current password for root** : *(Press Enter if no password is set)*
+2. **Switch to unix_socket authentication [Y/n]** : **Y**
+3. **Change the root password? [Y/n]** : **Y**
+   * **New password** : *Enter a strong password for the MariaDB root user*
+4. **Remove anonymous users? [Y/n]** : **Y**
+5. **Disallow root login remotely? [Y/n]** : **N**
+   * *We choose 'N' to allow remote access if needed for tools like Metabase or PowerBI.*
+6. **Remove test database and access to it? [Y/n]** : **Y**
+7. **Reload privilege tables now? [Y/n]** : **Y**
+
+### **Configure MariaDB Character Set**
+
+Edit the MariaDB configuration file to set the correct character set.
+
+**Open the configuration file** :
+
+```bash
+sudo nano /etc/mysql/my.cnf
+```
+
+ **Add the following configuration** :
+
+```sql
+[mysqld]
+character-set-client-handshake = FALSE
+character-set-server = utf8mb4
+collation-server = utf8mb4_unicode_ci
+
+[mysql]
+default-character-set = utf8mb4
+```
+
+**Save and exit** :
+
+* Press `Ctrl + O` to save.
+* Press `Enter` to confirm the filename.
+* Press `Ctrl + X` to exit the editor
+
+### **Restart MariaDB Service**
+
+Apply the changes by restarting MariaDB:
+
+```bash
+sudo service mysql restart
 ```
