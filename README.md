@@ -209,34 +209,90 @@ nvm allows us to manage multiple versions of Node.js.
 curl https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash
 ```
 
-* **Activate nvm** :
 
-  ```bash
-  source ~/.profile
-  ```
-  ### **Install Node.js Version 18**
+**Activate nvm** :
 
-  Use nvm to install Node.js version 18, which is required by Frappe version 15.
+```bash
+source ~/.profile
+```
 
+### **Install Node.js Version 18**
 
-  ```bash
-  nvm install 18
-  ```
-  **Verify the installation** :
+Use nvm to install Node.js version 18, which is required by Frappe version 15.
 
-  ```bash
-  node -v
-  npm -v
-  ```
-  ### **Install Yarn**
+```bash
+nvm install 18
+```
 
-  Yarn is a package manager that handles project dependencies efficiently.
+**Verify the installation** :
 
-  ```bash
-  npm install -g yarn
-  ```
-  **Verify the installation** :
+```bash
+node -v
+npm -v
+```
 
-  ```bash
-  yarn --version
-  ```
+### **Install Yarn**
+
+Yarn is a package manager that handles project dependencies efficiently.
+
+```bash
+npm install -g yarn
+```
+
+**Verify the installation** :
+
+```bash
+yarn --version
+```
+
+## **Install Frappe Bench**
+
+Now that we have all the necessary dependencies installed, we can proceed to install Frappe Bench, which is the command-line tool used to manage Frappe and its applications.
+
+### **Install Frappe Bench Using pip**
+
+We'll use `pip3` to install the Frappe Bench CLI globally.
+
+```bash
+sudo pip3 install frappe-bench
+```
+
+## **Initialize Frappe Bench**
+
+Next, we'll initialize a new bench directory. This will set up the required directory structure and download the Frappe framework
+
+```bash
+bench init --frappe-branch version-15 frappe-bench
+```
+
+* This command initializes a bench named `frappe-bench` with Frappe Version 15.
+
+## **Navigate to the Bench Directory**
+
+Change your current directory to the newly created bench directory.
+
+```bash
+cd frappe-bench
+```
+
+## **Adjust User Directory Permissions**
+
+We need to ensure that the bench user has the necessary permissions to execute files within their home directory.
+
+```bash
+sudo chown -R frappe-user:frappe-user /home/frappe-user
+```
+
+* Replace `frappe-user` with the username you created earlier (e.g., `frappe`).
+* This command grants read and execute permissions to others for the bench user's home directory and its contents
+
+## **Create a New Site**
+
+In Frappe, a "site" represents an instance where the applications run. We need to create a new site to install Frappe apps (e.g., ERPNext, HRMS)
+
+```bash
+bench new-site site-name
+```
+
+* Replace `site-name` with your desired site name (e.g., `mysite.local`).
+* You'll also need to set an administrator password for the new site when prompted.
